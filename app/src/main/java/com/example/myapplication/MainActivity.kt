@@ -11,10 +11,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val btn:Button=findViewById(R.id.btn_submit)
-        btn.setOnClickListener(View.OnClickListener {
-            val editTxt = findViewById<EditText>(R.id.editText)
-            Toast.makeText(this, "hi I am ${editTxt.text.toString()} \n go! corona go!", Toast.LENGTH_SHORT).show()
+            val name =findViewById<EditText>(R.id.editText)
+            val age =findViewById<EditText>(R.id.age)
+            val btn =findViewById<Button>(R.id.btn_submit)
+            btn.setOnClickListener(View.OnClickListener {
+                if (name.text.toString().trim().isEmpty()){
+                    Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show()
+                }
+                else if (age.text.toString().trim().isEmpty()){
+                    Toast.makeText(this, "Enter your age", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this, "hi i am ${name.text.toString()} \n go corona! go! ", Toast.LENGTH_LONG).show()
+                }
         })
 
     }
